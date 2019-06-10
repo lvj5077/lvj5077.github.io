@@ -96,15 +96,18 @@
 
 
 
-  <meta name="keywords" content="blog,hexo">
+  <meta name="description" content="Here’s a log for creating my first blog with github, Node.js and Hexo  Environment：Mac OS Mojave 10.14.5  Pre-requirement: a github account    Install Node.js 1.1 install with Node Package Manager htt">
+<meta name="keywords" content="blog,hexo,system">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo配置">
+<meta property="og:title" content="Blog Setup">
 <meta property="og:url" content="http://yoursite.com/2019/06/10/Hexo配置/index.html">
 <meta property="og:site_name" content="My Blog">
+<meta property="og:description" content="Here’s a log for creating my first blog with github, Node.js and Hexo  Environment：Mac OS Mojave 10.14.5  Pre-requirement: a github account    Install Node.js 1.1 install with Node Package Manager htt">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-10T20:48:15.540Z">
+<meta property="og:updated_time" content="2019-06-10T21:31:55.903Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo配置">
+<meta name="twitter:title" content="Blog Setup">
+<meta name="twitter:description" content="Here’s a log for creating my first blog with github, Node.js and Hexo  Environment：Mac OS Mojave 10.14.5  Pre-requirement: a github account    Install Node.js 1.1 install with Node Package Manager htt">
 
 
 
@@ -122,7 +125,7 @@
   };
 </script>
 
-  <title>Hexo配置 | My Blog</title>
+  <title>Blog Setup | My Blog</title>
   
 
 
@@ -343,7 +346,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lingqiu Jin">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/IMG_2785.jpg">
+      <meta itemprop="image" content="http://ww3.sinaimg.cn/large/006tNc79ly1g3wrppa42bj30hq0hrtb6.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -355,7 +358,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hexo配置
+          <h1 class="post-title" itemprop="name headline">Blog Setup
 
               
             
@@ -381,7 +384,7 @@
                 
               
 
-              <time title="Created: 2019-06-10 16:04:31 / Modified: 16:48:15" itemprop="dateCreated datePublished" datetime="2019-06-10T16:04:31-04:00">2019-06-10</time>
+              <time title="Created: 2019-06-10 16:04:31 / Modified: 17:31:55" itemprop="dateCreated datePublished" datetime="2019-06-10T16:04:31-04:00">2019-06-10</time>
             
 
             
@@ -438,7 +441,54 @@
       
 
       
-        
+        <p>Here’s a log for creating my first blog with github, Node.js and Hexo</p>
+<ul>
+<li><p>Environment：Mac OS Mojave 10.14.5</p>
+</li>
+<li><p>Pre-requirement: a github account</p>
+</li>
+</ul>
+<ol>
+<li><p>Install <strong>Node.js</strong></p>
+<p>1.1 install with Node Package Manager <a href="https://nodejs.org/en/" target="_blank" rel="noopener">https://nodejs.org/en/</a></p>
+<p>1.2 install with <strong>nvm</strong> </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash</span><br><span class="line"></span><br><span class="line">or</span><br><span class="line"></span><br><span class="line">wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash</span><br><span class="line"></span><br><span class="line">nvm install node</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Install <strong>Hexo</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br><span class="line">npm install hexo-deployer-git --save # for saving on github</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Create a folder for your local project</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mkdir ~/myblog</span><br><span class="line">cd ~/myblog</span><br><span class="line">hexo init</span><br><span class="line"></span><br><span class="line">hexo g # generate your static website</span><br><span class="line">hexo s # local server </span><br><span class="line"><span class="meta">#</span> you can preview your website at  localhost:4000</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Install theme</p>
+<p>​    Simplest way to install is by cloning the entire repository:</p>
+<p>​    Don’t  forget to change the _config.yml file to make it effect</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd ~/myblog</span><br><span class="line">git clone https://github.com/theme-next/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Publish to Github</p>
+<p>1.1 Before moving on, make sure your local host is connected to Github with SSH</p>
+<p>(<a href="https://help.github.com/en/articles/connecting-to-github-with-ssh" target="_blank" rel="noopener">https://help.github.com/en/articles/connecting-to-github-with-ssh</a>)</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C "your_email@example.com"</span><br><span class="line">pbcopy &lt; ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
+
+<p>1.2 Login in your Github account and add the key under setting/ssh</p>
+<ol start="2">
+<li><p>Create a new repository with “your-username.github.io”</p>
+</li>
+<li><p>Modify your configuration file myblog/_config.yml</p>
+</li>
+</ol>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line"><span class="attr">  type:</span> <span class="string">git</span></span><br><span class="line"><span class="attr">  repo:</span> <span class="attr">https://github.com/your-username/your-username.github.io.git</span></span><br><span class="line"><span class="attr">  branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li><p>Generate and Deploy</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g -d</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+</li>
+</ol>
+<p>Each Github user shall be able to create one GitHub.io page for free. So far, your blog should be published online and can be visted on your-username.github.io</p>
+
       
     </div>
 
@@ -467,6 +517,8 @@
             <a href="/tags/blog/" rel="tag"># blog</a>
           
             <a href="/tags/hexo/" rel="tag"># hexo</a>
+          
+            <a href="/tags/system/" rel="tag"># system</a>
           
         </div>
       
@@ -536,7 +588,7 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image" src="/images/IMG_2785.jpg" alt="Lingqiu Jin">
+              <img class="site-author-image" itemprop="image" src="http://ww3.sinaimg.cn/large/006tNc79ly1g3wrppa42bj30hq0hrtb6.jpg" alt="Lingqiu Jin">
             
               <p class="site-author-name" itemprop="name">Lingqiu Jin</p>
               <div class="site-description motion-element" itemprop="description"></div>
