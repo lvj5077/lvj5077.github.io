@@ -382,7 +382,7 @@
                 
               
 
-              <time title="Created: 2019-06-10 16:38:33 / Modified: 19:28:42" itemprop="dateCreated datePublished" datetime="2019-06-10T16:38:33-04:00">2019-06-10</time>
+              <time title="Created: 2019-06-10 16:38:33 / Modified: 19:30:50" itemprop="dateCreated datePublished" datetime="2019-06-10T16:38:33-04:00">2019-06-10</time>
             
 
             
@@ -454,10 +454,11 @@
 
 <h3 id="geometric-shapes"><a href="#geometric-shapes" class="headerlink" title="geometric_shapes"></a>geometric_shapes</h3><h4 id="Method-1"><a href="#Method-1" class="headerlink" title="Method 1"></a>Method 1</h4><ol>
 <li>Open ~/ros_catkin_ws/build_isolated/geometric_shapes/CMakeFiles/geometric_shapes.dir/link.txt</li>
-<li>Replace -lassimp with /usr/local/lib/libassimp.dylib<h4 id="Method-2"><a href="#Method-2" class="headerlink" title="Method 2"></a>Method 2</h4>Open CMakeList.txt<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">target_link_libraries($</span>&#123;PROJECT_NAME&#125; $&#123;QHULL_LIBRARIES&#125; $&#123;catkin_LIBRARIES&#125; $&#123;console_bridge_LIBRARIES&#125; $&#123;Boost_LIBRARIES&#125; /usr/local/lib/libassimp.dylib) ＃$&#123;ASSIMP_LIBRARIES&#125;</span><br></pre></td></tr></table></figure>
-
-</li>
+<li>Replace -lassimp with /usr/local/lib/libassimp.dylib</li>
 </ol>
+<h4 id="Method-2"><a href="#Method-2" class="headerlink" title="Method 2"></a>Method 2</h4><p>Open CMakeList.txt</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">target_link_libraries($</span>&#123;PROJECT_NAME&#125; $&#123;QHULL_LIBRARIES&#125; $&#123;catkin_LIBRARIES&#125; $&#123;console_bridge_LIBRARIES&#125; $&#123;Boost_LIBRARIES&#125; /usr/local/lib/libassimp.dylib) ＃$&#123;ASSIMP_LIBRARIES&#125;</span><br></pre></td></tr></table></figure>
+
 <h3 id="boost-syntax"><a href="#boost-syntax" class="headerlink" title="boost syntax"></a>boost syntax</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">boost::posix_time::milliseconds(<span class="keyword">static_cast</span>(time_left.toSec() * <span class="number">1000.0f</span>))</span><br></pre></td></tr></table></figure>
 
 <h3 id="PCL"><a href="#PCL" class="headerlink" title="PCL"></a>PCL</h3><ol>
