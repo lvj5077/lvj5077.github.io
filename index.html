@@ -382,7 +382,7 @@
                 
               
 
-              <time title="Created: 2019-06-10 16:38:33 / Modified: 16:43:54" itemprop="dateCreated datePublished" datetime="2019-06-10T16:38:33-04:00">2019-06-10</time>
+              <time title="Created: 2019-06-10 16:38:33 / Modified: 19:28:42" itemprop="dateCreated datePublished" datetime="2019-06-10T16:38:33-04:00">2019-06-10</time>
             
 
             
@@ -441,38 +441,35 @@
       
         
           
-            <h1 id="Mac-ROS"><a href="#Mac-ROS" class="headerlink" title="Mac ROS"></a>Mac ROS</h1><h2 id="在MacOS-Mojave-10-14-5-上完美安装-ROS-Kinetic的（回忆）记录，希望对看到的同学有所帮助"><a href="#在MacOS-Mojave-10-14-5-上完美安装-ROS-Kinetic的（回忆）记录，希望对看到的同学有所帮助" class="headerlink" title="在MacOS Mojave 10.14.5 上完美安装 ROS Kinetic的（回忆）记录，希望对看到的同学有所帮助"></a>在MacOS Mojave 10.14.5 上完美安装 ROS Kinetic的（回忆）记录，希望对看到的同学有所帮助</h2><p>to be continue</p>
-<p>I got it to work by creating a symlink in -usr-local-Cellar</p>
-<h1 id="I-got-it-to-work-by-creating-a-symlink-in-usr-local-Cellar"><a href="#I-got-it-to-work-by-creating-a-symlink-in-usr-local-Cellar" class="headerlink" title="I got it to work by creating a symlink in /usr/local/Cellar"></a>I got it to work by creating a symlink in /usr/local/Cellar</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/Cellar</span><br><span class="line">sudo ln -s pyqt pyqt5</span><br><span class="line">sudo ln -s pyqt5 pyqt</span><br></pre></td></tr></table></figure>
+            <h2 id="ROS-OSX"><a href="#ROS-OSX" class="headerlink" title="ROS OSX"></a>ROS OSX</h2><h3 id="I-have-succeeded-to-install-ROS-Kinetic-on-MacOS-Mojave-10-14-2-I-wrote-this-log-by-recalling-a-memory-and-wish-it-could-be-helpful"><a href="#I-have-succeeded-to-install-ROS-Kinetic-on-MacOS-Mojave-10-14-2-I-wrote-this-log-by-recalling-a-memory-and-wish-it-could-be-helpful" class="headerlink" title="I have succeeded to install ROS Kinetic on MacOS Mojave 10.14.2. I wrote this log by recalling a memory and wish it could be helpful."></a>I have succeeded to install ROS Kinetic on MacOS Mojave 10.14.2. I wrote this log by recalling a memory and wish it could be helpful.</h3><h3 id="Install-Homebrew"><a href="#Install-Homebrew" class="headerlink" title="Install Homebrew"></a>Install Homebrew</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"</span><br></pre></td></tr></table></figure>
 
-<p>We agreed to the Qt open source license for you.<br>If this is unacceptable you should uninstall.</p>
-<p>qt is keg-only, which means it was not symlinked into /usr/local,<br>because Qt 5 has CMake issues when linked.</p>
-<p>If you need to have qt first in your PATH run:<br>echo ‘export PATH=”/usr/local/opt/qt/bin:$PATH”‘ &gt;&gt; ~/.bash_profile</p>
-<p>For compilers to find qt you may need to set:<br>export LDFLAGS=”-L/usr/local/opt/qt/lib”<br>export CPPFLAGS=”-I/usr/local/opt/qt/include”</p>
-<p>For pkg-config to find qt you may need to set:<br>export PKG_CONFIG_PATH=”/usr/local/opt/qt/lib/pkgconfig”</p>
-<p>OpenCV freetype text 没有编译</p>
-<p>‘tr1/unordered_map’ file not found</p>
-<p>if(APPLE)<br>set(CMAKE_CXX_FLAGS “-std=c++11 -stdlib=libstdc++ -Wno-error=c++11-narrowing”)<br>endif(APPLE)</p>
-<ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">brew update</span><br><span class="line">brew install cmake</span><br><span class="line">brew tap ros/deps</span><br><span class="line">brew tap osrf/simulation   # Gazebo, sdformat, and ogre</span><br><span class="line">brew tap homebrew/core # VTK5</span><br><span class="line">brew tap homebrew/science  # others</span><br></pre></td></tr></table></figure>
+
+<h3 id="Install-Python"><a href="#Install-Python" class="headerlink" title="Install Python"></a>Install Python</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p ~/Library/Python/2.7/lib/python/site-packages</span><br><span class="line">echo "$(brew --prefix)/lib/python2.7/site-packages" &gt;&gt; ~/Library/Python/2.7/lib/python/site-packages/homebrew.pth</span><br><span class="line"></span><br><span class="line">brew install python  # brew Python comes with pip and is installed as python2</span><br><span class="line">sudo -H python2 -m pip install -U pip  # Update pip</span><br><span class="line">sudo -H python2 -m pip install wxPython # Install python-wxtools</span><br><span class="line"></span><br><span class="line">sudo -H python2 -m pip install -U wstool rosdep rosinstall rosinstall_generator rospkg catkin-pkg sphinx</span><br><span class="line"></span><br><span class="line">sudo -H rosdep init</span><br><span class="line">rosdep update</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>## ROS</span><br><span class="line">```shell</span><br><span class="line">mkdir ~/ros_catkin_ws</span><br><span class="line">cd ~/ros_catkin_ws</span><br><span class="line">catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release -DCMAKE_FIND_FRAMEWORK=LAST -DCATKIN_ENABLE_TESTING=0 --only-pkg-with-deps</span><br></pre></td></tr></table></figure>
+
+<h3 id="QT"><a href="#QT" class="headerlink" title="QT"></a>QT</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo ln -s pyqt pyqt5</span><br><span class="line">sudo ln -s pyqt5 pyqt</span><br></pre></td></tr></table></figure>
+
+<h3 id="’tr1-unordered-map’-file-not-found"><a href="#’tr1-unordered-map’-file-not-found" class="headerlink" title="’tr1/unordered_map’ file not found"></a>’tr1/unordered_map’ file not found</h3><p>Change CmakeLists.txt</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(APPLE)</span><br><span class="line"><span class="built_in">set</span>(CMAKE_CXX_FLAGS <span class="string">"-std=c++11 -stdlib=libstdc++ -Wno-error=c++11-narrowing"</span>)</span><br><span class="line">endif(APPLE)</span><br></pre></td></tr></table></figure>
+
+<h3 id="geometric-shapes"><a href="#geometric-shapes" class="headerlink" title="geometric_shapes"></a>geometric_shapes</h3><h4 id="Method-1"><a href="#Method-1" class="headerlink" title="Method 1"></a>Method 1</h4><ol>
 <li>Open ~/ros_catkin_ws/build_isolated/geometric_shapes/CMakeFiles/geometric_shapes.dir/link.txt</li>
-<li>Replace -lassimp with /usr/local/lib/libassimp.dylib</li>
+<li>Replace -lassimp with /usr/local/lib/libassimp.dylib<h4 id="Method-2"><a href="#Method-2" class="headerlink" title="Method 2"></a>Method 2</h4>Open CMakeList.txt<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">target_link_libraries($</span>&#123;PROJECT_NAME&#125; $&#123;QHULL_LIBRARIES&#125; $&#123;catkin_LIBRARIES&#125; $&#123;console_bridge_LIBRARIES&#125; $&#123;Boost_LIBRARIES&#125; /usr/local/lib/libassimp.dylib) ＃$&#123;ASSIMP_LIBRARIES&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
 </ol>
-<p>CMakeList.txt</p>
-<p>target_link_libraries(${PROJECT_NAME} ${QHULL_LIBRARIES} ${catkin_LIBRARIES} ${console_bridge_LIBRARIES} ${Boost_LIBRARIES} /usr/local/lib/libassimp.dylib) ＃${ASSIMP_LIBRARIES}</p>
-<p>boost::posix_time::milliseconds(static_cast(time_left.toSec() * 1000.0f))</p>
-<p>I have the same problem (when building pcl as part of ROS Kinetic on macOS Mojave). My workaround was opening link.txt in all the relevant subfolder of CMakeFiles and doing the following replacements:</p>
-<ol>
+<h3 id="boost-syntax"><a href="#boost-syntax" class="headerlink" title="boost syntax"></a>boost syntax</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">boost::posix_time::milliseconds(<span class="keyword">static_cast</span>(time_left.toSec() * <span class="number">1000.0f</span>))</span><br></pre></td></tr></table></figure>
+
+<h3 id="PCL"><a href="#PCL" class="headerlink" title="PCL"></a>PCL</h3><ol>
 <li>Replacing -lflann by /usr/local/lib/libflann.dylib</li>
 <li>Replacing -lflann_cpp by /usr/local/lib/libflann_cpp.dylib</li>
 </ol>
-<p>source ~/ros_catkin_ws/install_isolated/setup.bash</p>
-<p>catkin_make_isolated –install -DCMAKE_BUILD_TYPE=Release -DCMAKE_FIND_FRAMEWORK=LAST -DCATKIN_ENABLE_TESTING=0 –only-pkg-with-deps</p>
-<p>cd /Users/lingqiujin/ros_catkin_ws/devel_isolated/roslz4/lib/python2.7/site-packages/roslz4</p>
-<p>install_name_tool -change /System/Library/Frameworks/Python.framework/Versions/2.7/Python /usr/local/Cellar/python@2/2.7.16/Frameworks/Python.framework/Versions/2.7/Python _roslz4.so</p>
-<p>cd /Users/lingqiujin/ros_catkin_ws/install_isolated/lib/python2.7/site-packages/roslz4/</p>
-<p>install_name_tool -change /System/Library/Frameworks/Python.framework/Versions/2.7/Python /usr/local/Cellar/python@2/2.7.16/Frameworks/Python.framework/Versions/2.7/Python _roslz4.so</p>
-<p>export PATH=/usr/local/share/python:$PATH<br>export PATH=”/usr/local/opt/icu4c/bin:$PATH”<br>export PATH=”/usr/local/opt/icu4c/sbin:$PATH”<br>export PATH=”/usr/local/opt/qt/bin:$PATH”</p>
-<p>source ~/ros_catkin_ws/install_isolated/setup.bash</p>
+<h3 id="roslz4"><a href="#roslz4" class="headerlink" title="roslz4"></a>roslz4</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">cd /Users/lingqiujin/ros_catkin_ws/devel_isolated/roslz4/lib/python2.7/site-packages/roslz4</span><br><span class="line"></span><br><span class="line">install_name_tool -change /System/Library/Frameworks/Python.framework/Versions/2.7/Python /usr/local/Cellar/python@2/2.7.16/Frameworks/Python.framework/Versions/2.7/Python _roslz4.so</span><br><span class="line"></span><br><span class="line">cd /Users/lingqiujin/ros_catkin_ws/install_isolated/lib/python2.7/site-packages/roslz4/</span><br><span class="line"></span><br><span class="line">install_name_tool -change /System/Library/Frameworks/Python.framework/Versions/2.7/Python /usr/local/Cellar/python@2/2.7.16/Frameworks/Python.framework/Versions/2.7/Python _roslz4.so</span><br><span class="line"></span><br><span class="line">export PATH="/usr/local/share/python:$PATH"</span><br><span class="line">export PATH="/usr/local/opt/icu4c/bin:$PATH"</span><br><span class="line">export PATH="/usr/local/opt/icu4c/sbin:$PATH"</span><br><span class="line">export PATH="/usr/local/opt/qt/bin:$PATH"</span><br></pre></td></tr></table></figure>
+
+<h3 id="Finally"><a href="#Finally" class="headerlink" title="Finally"></a>Finally</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source ~/ros_catkin_ws/install_isolated/setup.bash</span><br></pre></td></tr></table></figure>
+
+<h3 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release -DCMAKE_FIND_FRAMEWORK=LAST  -DCATKIN_ENABLE_TESTING=0 --only-pkg-with-deps</span><br><span class="line"></span><br><span class="line">catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release -DCMAKE_FIND_FRAMEWORK=LAST  -DCATKIN_ENABLE_TESTING=0 --pkg</span><br></pre></td></tr></table></figure>
+
 
           
         
@@ -855,7 +852,7 @@
   <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
   </script>
   <span id="busuanzi_container_site_uv">
-    本站访客数<span id="busuanzi_value_site_uv"></span>人次
+    visited by <span id="busuanzi_value_site_uv"></span> times
   </span>
 </div>
 
