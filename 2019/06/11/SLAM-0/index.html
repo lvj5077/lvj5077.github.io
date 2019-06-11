@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="The fear of the Lord is the beginning of wisdom, and knowledge of the Holy One is understanding. (Proverbs 9:10)">
+  <meta name="description" content="Before we step into the study of SLAM, let’s set up the environment first. Ideally, a Linux system like Ubuntu16 will be a good start, mostly because of the support to ROS. But since I have figured ou">
 <meta name="keywords" content="SLAM">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SLAM(0)">
 <meta property="og:url" content="http://yoursite.com/2019/06/11/SLAM-0/index.html">
 <meta property="og:site_name" content="Q&#39;s Blog">
-<meta property="og:description" content="The fear of the Lord is the beginning of wisdom, and knowledge of the Holy One is understanding. (Proverbs 9:10)">
+<meta property="og:description" content="Before we step into the study of SLAM, let’s set up the environment first. Ideally, a Linux system like Ubuntu16 will be a good start, mostly because of the support to ROS. But since I have figured ou">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-11T14:01:07.132Z">
+<meta property="og:updated_time" content="2019-06-11T15:19:37.704Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SLAM(0)">
-<meta name="twitter:description" content="The fear of the Lord is the beginning of wisdom, and knowledge of the Holy One is understanding. (Proverbs 9:10)">
+<meta name="twitter:description" content="Before we step into the study of SLAM, let’s set up the environment first. Ideally, a Linux system like Ubuntu16 will be a good start, mostly because of the support to ROS. But since I have figured ou">
 
 
 
@@ -384,7 +384,7 @@
                 
               
 
-              <time title="Created: 2019-06-11 10:00:13 / Modified: 10:01:07" itemprop="dateCreated datePublished" datetime="2019-06-11T10:00:13-04:00">2019-06-11</time>
+              <time title="Created: 2019-06-11 10:00:13 / Modified: 11:19:37" itemprop="dateCreated datePublished" datetime="2019-06-11T10:00:13-04:00">2019-06-11</time>
             
 
             
@@ -417,7 +417,7 @@
                 
                   <span class="post-meta-item-text">Symbols count in article: </span>
                 
-                <span title="Symbols count in article">0</span>
+                <span title="Symbols count in article">3.3k</span>
               
 
               
@@ -431,7 +431,7 @@
                 
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="Reading time">1 mins.</span>
+                <span title="Reading time">2 mins.</span>
               
             </div>
           
@@ -451,7 +451,35 @@
       
 
       
-        
+        <p>Before we step into the study of SLAM, let’s set up the environment first. Ideally, a Linux system like Ubuntu16 will be a good start, mostly because of the support to ROS. But since I have figured out how to install ROS on MacOS, the difference of developing in MacOS or Ubuntu is negligible. In addition, I strongly recommend to compile the packages like openCV, PCL, g2o, … from source and set up the dependencies mannually with cmake.</p>
+<p>For Mac users, it is nice to have homebrew to install packages and resolve relative dependencies. Homebrew installs packages to their own directory <code>/usr/local/Cellar</code> by default, and then symlinks their files into <code>/usr/local</code> by options. It can be seen as a Mac alternative of “apt-get” in Linux. In my personal opinion, it’s better for beginners to use “homebrew” instead of “apt-get”. Since homebrew allows user to choose which git repository to complile and if this package will be installed to system directories, while “apt-get install” would confuse most beginners and install everything into system directory <code>/opt</code>, which seems to be easier for users to find the packages when they first start, but it will cause issues when they are dealing with mutilple versions. Espeacially when something was “accidentally” “apt-get installed”, most inexperienced users like myself, wouldn’t be able to sort out the dependencies among all system applications. I spent so much time on reinstalling the system in the first couple months, which really slows things down. Neverthless, if I was using package manage mechanism like homebrew, delete the package folder or <code>brew remove [FORMULA]</code>will be a easy fix. </p>
+<p>###Install Homebrew</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"</span><br></pre></td></tr></table></figure>
+
+<p>Matlab can be handy when prototyping some ideas or making pretty plots. But in SLAM development, C++ is more popular. You might have seen people doing amazing things with Vim. But considering of the unpleasant learning curve, I would recommand to choose Sublime Text 3, Visual Studio Code or Atoms as your first text editor. All of three editor I mentioned above are free and can be turned into a IDE. I prefer to use ST3 for coding and VS Code for debugging. </p>
+<h3 id="Now-let’s-write-our-first-program"><a href="#Now-let’s-write-our-first-program" class="headerlink" title="Now, let’s write our first program."></a>Now, let’s write our first program.</h3><ol>
+<li><p>Create a folder as your root directory. </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir myFirstProgram</span><br><span class="line">cd myFirstProgram</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Write your <code>CMakeLists.txt</code></p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CMAKE_MINIMUM_REQUIRED</span>(VERSION <span class="number">2.8</span>)</span><br><span class="line"><span class="keyword">project</span>(myFirstProgram)</span><br><span class="line"></span><br><span class="line"><span class="comment"># SET(CMAKE_CXX_COMPILER "/usr/bin/c++") # in Linux</span></span><br><span class="line"><span class="keyword">SET</span>( CMAKE_BUILD_TYPE Release )</span><br><span class="line"><span class="keyword">SET</span>( CMAKE_CXX_FLAGS <span class="string">"-O3 -std=c++11"</span> )</span><br><span class="line"></span><br><span class="line"><span class="keyword">SET</span>(EXECUTABLE_OUTPUT_PATH <span class="variable">$&#123;PROJECT_SOURCE_DIR&#125;</span>/bin)</span><br><span class="line"><span class="keyword">SET</span>(LIBRARY_OUTPUT_PATH <span class="variable">$&#123;PROJECT_SOURCE_DIR&#125;</span>/lib)</span><br><span class="line"><span class="keyword">INCLUDE_DIRECTORIES</span>( <span class="variable">$&#123;PROJECT_SOURCE_DIR&#125;</span>/<span class="keyword">include</span> )</span><br><span class="line"><span class="keyword">LINK_DIRECTORIES</span>( <span class="variable">$&#123;PROJECT_SOURCE_DIR&#125;</span>/lib)</span><br><span class="line"></span><br><span class="line"><span class="keyword">ADD_SUBDIRECTORY</span>( <span class="variable">$&#123;PROJECT_SOURCE_DIR&#125;</span>/src )</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Write another  <code>CMakeLists.txt</code> under <code>myFirstProgram/src</code></p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">project</span>(myFirstProgram)</span><br><span class="line"><span class="keyword">ADD_EXECUTABLE</span>( helloWorld main.cpp)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Write our <code>main.cpp</code></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span>** argv)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">"Hello SLAM!"</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Complie and test your program.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd myFirstProgram</span><br><span class="line">mkdir build</span><br><span class="line">cd build</span><br><span class="line">cmake ..</span><br><span class="line">make</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>A bin file shall be generated under  <code>myFirstProgram/bin</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd ..</span><br><span class="line">cd bin</span><br><span class="line">./helloWorld</span><br></pre></td></tr></table></figure>
+
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p><a href="https://brew.sh" target="_blank" rel="noopener">homebrew</a><br><a href="https://www.sublimetext.com" target="_blank" rel="noopener">Sublime Text 3</a><br><a href="https://code.visualstudio.com" target="_blank" rel="noopener"> Visual Studio Code</a></p>
+
       
     </div>
 
@@ -542,8 +570,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -647,6 +684,23 @@
       </div>
 
       
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Now-let’s-write-our-first-program"><span class="nav-text">Now, let’s write our first program.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reference"><span class="nav-text">Reference</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
 
       
 
@@ -673,7 +727,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">6k</span>
+    <span title="Symbols count total">9k</span>
   
 
   
@@ -682,7 +736,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="Reading time total">4 mins.</span>
+    <span title="Reading time total">7 mins.</span>
   
 
   <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
