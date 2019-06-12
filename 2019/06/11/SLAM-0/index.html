@@ -104,10 +104,12 @@
 <meta property="og:site_name" content="Q&#39;s Blog">
 <meta property="og:description" content="Before we step into the study of SLAM, let’s set up the environment first. Ideally, a Linux system like Ubuntu16 will be a good start, mostly because of the support to ROS. But since I have figured ou">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-11T15:21:55.304Z">
+<meta property="og:image" content="http://ww2.sinaimg.cn/large/006tNc79ly1g3yocny5mzj30hq0avta7.jpg">
+<meta property="og:updated_time" content="2019-06-12T13:06:28.360Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SLAM(0)">
 <meta name="twitter:description" content="Before we step into the study of SLAM, let’s set up the environment first. Ideally, a Linux system like Ubuntu16 will be a good start, mostly because of the support to ROS. But since I have figured ou">
+<meta name="twitter:image" content="http://ww2.sinaimg.cn/large/006tNc79ly1g3yocny5mzj30hq0avta7.jpg">
 
 
 
@@ -384,12 +386,24 @@
                 
               
 
-              <time title="Created: 2019-06-11 10:00:13 / Modified: 11:21:55" itemprop="dateCreated datePublished" datetime="2019-06-11T10:00:13-04:00">2019-06-11</time>
+              <time title="Created: 2019-06-11 10:00:13" itemprop="dateCreated datePublished" datetime="2019-06-11T10:00:13-04:00">2019-06-11</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-06-12 09:06:28" itemprop="dateModified" datetime="2019-06-12T09:06:28-04:00">2019-06-12</time>
               
             
           </span>
@@ -417,7 +431,7 @@
                 
                   <span class="post-meta-item-text">Symbols count in article: </span>
                 
-                <span title="Symbols count in article">3.3k</span>
+                <span title="Symbols count in article">3.4k</span>
               
 
               
@@ -455,6 +469,7 @@
 <p>For Mac users, it is nice to have homebrew to install packages and resolve relative dependencies. Homebrew installs packages to their own directory <code>/usr/local/Cellar</code> by default, and then symlinks their files into <code>/usr/local</code> by options. It can be seen as a Mac alternative of “apt-get” in Linux. In my personal opinion, it’s better for beginners to use “homebrew” instead of “apt-get”. Since homebrew allows user to choose which git repository to complile and if this package will be installed to system directories, while “apt-get install” would confuse most beginners and install everything into system directory <code>/opt</code>, which seems to be easier for users to find the packages when they first start, but it will cause issues when they are dealing with mutilple versions. Espeacially when something was “accidentally” “apt-get installed”, most inexperienced users like myself, wouldn’t be able to sort out the dependencies among all system applications. I spent so much time on reinstalling the system in the first couple months, which really slows things down. Neverthless, if I was using package manage mechanism like homebrew, delete the package folder or <code>brew remove [FORMULA]</code>will be a easy fix. </p>
 <h3 id="Install-Homebrew"><a href="#Install-Homebrew" class="headerlink" title="Install Homebrew"></a>Install Homebrew</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"</span><br></pre></td></tr></table></figure>
 
+<p><img src="http://ww2.sinaimg.cn/large/006tNc79ly1g3yocny5mzj30hq0avta7.jpg" alt="Screen Shot 2019-06-12 at 7.31.27 AM"></p>
 <p>Matlab can be handy when prototyping some ideas or making pretty plots. But in SLAM development, C++ is more popular. You might have seen people doing amazing things with Vim. But considering of the unpleasant learning curve, I would recommand to choose Sublime Text 3, Visual Studio Code or Atoms as your first text editor. All of three editor I mentioned above are free and can be turned into a IDE. I prefer to use ST3 for coding and VS Code for debugging. </p>
 <h3 id="Now-let’s-write-our-first-program"><a href="#Now-let’s-write-our-first-program" class="headerlink" title="Now, let’s write our first program."></a>Now, let’s write our first program.</h3><ol>
 <li><p>Create a folder as your root directory. </p>
@@ -477,7 +492,7 @@
 <p>A bin file shall be generated under  <code>myFirstProgram/bin</code></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd ..</span><br><span class="line">cd bin</span><br><span class="line">./helloWorld</span><br></pre></td></tr></table></figure>
 
-<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p><a href="https://brew.sh" target="_blank" rel="noopener">homebrew</a><br><a href="https://www.sublimetext.com" target="_blank" rel="noopener">Sublime Text 3</a><br><a href="https://code.visualstudio.com" target="_blank" rel="noopener"> Visual Studio Code</a></p>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p><a href="https://brew.sh" target="_blank" rel="noopener">homebrew</a><br><a href="https://www.sublimetext.com" target="_blank" rel="noopener">Sublime Text 3</a><br><a href="https://code.visualstudio.com" target="_blank" rel="noopener"> Visual Studio Code</a><br><a href="https://cmake.org/cmake-tutorial/" target="_blank" rel="noopener">CMake Tutorial | CMake</a><br><a href="https://www.jetbrains.com/help/clion/quick-cmake-tutorial.html" target="_blank" rel="noopener">Quick CMake Tutorial - Help | CLion</a></p>
 
       
     </div>
